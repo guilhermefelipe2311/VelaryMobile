@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Cliente.ProdutosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Produtos"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- CABEÇALHO -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="20,20,20,10"
+            Spacing="5">
+
+            <Grid ColumnDefinitions="*,Auto,Auto">
+
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Spacing="3">
+
+                    <Label
+                        Text="VALERY"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        TextColor="#D4AF37" />
+
+                    <Label
+                        x:Name="SaudacaoLabel"
+                        Text="Olá!"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#111827" />
+
+                </VerticalStackLayout>
+
+                <!-- CARRINHO -->
+                <Button
+                    Grid.Column="1"
+                    Text="🛒"
+                    FontSize="22"
+                    WidthRequest="52"
+                    HeightRequest="52"
+                    CornerRadius="26"
+                    BackgroundColor="#111827"
+                    TextColor="White"
+                    Clicked="OnCarrinhoClicked"
+                    Margin="5,0" />
+
+                <!-- PERFIL -->
+                <Button
+                    Grid.Column="2"
+                    Text="👤"
+                    FontSize="22"
+                    WidthRequest="52"
+                    HeightRequest="52"
+                    CornerRadius="26"
+                    BackgroundColor="#D4AF37"
+                    TextColor="#111827"
+                    Clicked="OnPerfilClicked"
+                    Margin="5,0" />
+
+            </Grid>
+
+            <Label
+                Text="Produtos"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="#111827"
+                Margin="0,8,0,0" />
+
+            <Label
+                Text="Encontre os produtos disponíveis."
+                FontSize="14"
+                TextColor="#777777" />
+
+        </VerticalStackLayout>
+
+        <!-- BUSCA -->
+        <Border
+            Grid.Row="1"
+            Margin="20,0,20,15"
+            Padding="15,0"
+            BackgroundColor="White"
+            Stroke="#DDDDDD"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 10">
+
+            <Entry
+                x:Name="BuscaEntry"
+                Placeholder="Buscar produto..."
+                TextColor="#222222"
+                PlaceholderColor="#999999"
+                BackgroundColor="Transparent"
+                TextChanged="OnBuscaTextChanged" />
+
+        </Border>
+
+        <!-- PRODUTOS -->
+        <CollectionView
+            x:Name="ProdutosCollectionView"
+            Grid.Row="2"
+            Margin="20,0"
+            SelectionMode="Single"
+            SelectionChanged="OnProdutoSelecionado">
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    Padding="20,50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="Nenhum produto encontrado."
+                        FontSize="16"
+                        TextColor="#777777"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Margin="0,0,0,15"
+                        Padding="15"
+                        BackgroundColor="White"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12">
+
+                        <Grid
+                            ColumnDefinitions="100,*"
+                            ColumnSpacing="15">
+
+                            <Border
+                                Grid.Column="0"
+                                HeightRequest="100"
+                                WidthRequest="100"
+                                BackgroundColor="#F0F0F0"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 10">
+
+                                <Image
+                                    Source="{Binding ImagemUrl}"
+                                    Aspect="AspectFill" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="6"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="{Binding Nome}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="#111827"
+                                    LineBreakMode="TailTruncation" />
+
+                                <Label
+                                    Text="{Binding Descricao}"
+                                    FontSize="13"
+                                    TextColor="#777777"
+                                    MaxLines="2"
+                                    LineBreakMode="TailTruncation" />
+
+                                <Label
+                                    Text="{Binding Preco, StringFormat='R$ {0:F2}'}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="#D4AF37" />
+
+                                <Label
+                                    Text="{Binding Quantidade, StringFormat='Estoque: {0}'}"
+                                    FontSize="12"
+                                    TextColor="#888888" />
+
+                                <Label
+                                    Text="Toque para adicionar ao carrinho"
+                                    FontSize="11"
+                                    TextColor="#999999" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

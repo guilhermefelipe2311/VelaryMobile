@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Admin.AdminUsuariosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Usuários"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- CABEÇALHO -->
+
+            <VerticalStackLayout
+                Spacing="4">
+
+                <Label
+                    Text="Gerenciar Usuários"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Label
+                    Text="Visualize e gerencie os usuários cadastrados."
+                    FontSize="14"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+
+            <!-- LISTA -->
+
+            <CollectionView
+                x:Name="UsuariosCollectionView"
+                SelectionMode="None">
+
+                <CollectionView.EmptyView>
+
+                    <Border
+                        Padding="25"
+                        BackgroundColor="White"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <VerticalStackLayout
+                            Spacing="8"
+                            HorizontalOptions="Center">
+
+                            <Label
+                                Text="Nenhum usuário encontrado."
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="#777777"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="Os usuários cadastrados aparecerão aqui."
+                                FontSize="13"
+                                TextColor="#999999"
+                                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </CollectionView.EmptyView>
+
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            Margin="0,0,0,15"
+                            Padding="18"
+                            BackgroundColor="White"
+                            Stroke="#DDDDDD"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 15">
+
+                            <VerticalStackLayout
+                                Spacing="10">
+
+                                <!-- NOME -->
+
+                                <Label
+                                    Text="{Binding Nome}"
+                                    FontSize="19"
+                                    FontAttributes="Bold"
+                                    TextColor="#111827" />
+
+                                <!-- EMAIL -->
+
+                                <Label
+                                    Text="{Binding Email}"
+                                    FontSize="14"
+                                    TextColor="#555555" />
+
+                                <!-- ID -->
+
+                                <Label
+                                    Text="{Binding Id, StringFormat='ID do usuário: {0}'}"
+                                    FontSize="13"
+                                    TextColor="#777777" />
+
+
+                                <!-- TIPO -->
+
+                                <Border
+                                    Padding="12,8"
+                                    BackgroundColor="#F8F8F8"
+                                    Stroke="#E0E0E0"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 10">
+
+                                    <Grid
+                                        ColumnDefinitions="*,Auto">
+
+                                        <VerticalStackLayout
+                                            Grid.Column="0"
+                                            Spacing="2">
+
+                                            <Label
+                                                Text="Tipo de usuário"
+                                                FontSize="12"
+                                                TextColor="#777777" />
+
+                                            <Label
+                                                Text="{Binding TipoUsuario}"
+                                                FontSize="16"
+                                                FontAttributes="Bold"
+                                                TextColor="#D4AF37" />
+
+                                        </VerticalStackLayout>
+
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="●"
+                                            FontSize="16"
+                                            TextColor="#2E7D32"
+                                            VerticalOptions="Center" />
+
+                                    </Grid>
+
+                                </Border>
+
+
+                                <!-- BOTÃO ALTERAR -->
+
+                                <Button
+                                    Text="Alterar tipo"
+                                    HeightRequest="48"
+                                    CornerRadius="10"
+                                    BackgroundColor="#111827"
+                                    TextColor="White"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnAlterarTipoClicked" />
+
+
+                                <!-- BOTÃO EXCLUIR -->
+
+                                <Button
+                                    Text="Excluir usuário"
+                                    HeightRequest="48"
+                                    CornerRadius="10"
+                                    BackgroundColor="#B71C1C"
+                                    TextColor="White"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnExcluirClicked" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

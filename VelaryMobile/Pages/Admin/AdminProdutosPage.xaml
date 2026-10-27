@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Admin.AdminProdutosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Produtos"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- ===================================== -->
+            <!-- CABEÇALHO                             -->
+            <!-- ===================================== -->
+
+            <VerticalStackLayout
+                Spacing="4"
+                Margin="0,5,0,5">
+
+                <Label
+                    Text="Gerenciar Produtos"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Label
+                    Text="Cadastre e gerencie os produtos da sua loja."
+                    FontSize="14"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ===================================== -->
+            <!-- FORMULÁRIO NOVO PRODUTO               -->
+            <!-- ===================================== -->
+
+            <Border
+                Padding="20"
+                BackgroundColor="White"
+                Stroke="#DDDDDD"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 16">
+
+                <VerticalStackLayout
+                    Spacing="14">
+
+                    <VerticalStackLayout
+                        Spacing="3"
+                        Margin="0,0,0,5">
+
+                        <Label
+                            Text="Novo produto"
+                            FontSize="22"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Label
+                            Text="Preencha as informações abaixo para cadastrar um produto."
+                            FontSize="13"
+                            TextColor="#777777" />
+
+                    </VerticalStackLayout>
+
+
+                    <!-- NOME -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Nome do produto"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Border
+                            Padding="12,0"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Entry
+                                x:Name="NomeEntry"
+                                Placeholder="Ex.: Colar Elegance"
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="15"
+                                HeightRequest="50" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- DESCRIÇÃO -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Descrição"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Border
+                            Padding="12,5"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Editor
+                                x:Name="DescricaoEntry"
+                                Placeholder="Descreva o produto..."
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="15"
+                                HeightRequest="90"
+                                AutoSize="TextChanges" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- PREÇO -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Preço"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Border
+                            Padding="12,0"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Entry
+                                x:Name="PrecoEntry"
+                                Placeholder="Ex.: 299,99"
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="15"
+                                Keyboard="Numeric"
+                                HeightRequest="50" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- ESTOQUE -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Quantidade em estoque"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Border
+                            Padding="12,0"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Entry
+                                x:Name="QuantidadeEntry"
+                                Placeholder="Ex.: 10"
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="15"
+                                Keyboard="Numeric"
+                                HeightRequest="50" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- IMAGEM -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Imagem do produto"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Label
+                            Text="Cole abaixo a URL da imagem que será usada no produto."
+                            FontSize="12"
+                            TextColor="#777777" />
+
+                        <Border
+                            Padding="12,0"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Entry
+                                x:Name="ImagemUrlEntry"
+                                Placeholder="https://exemplo.com/imagem.jpg"
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="14"
+                                Keyboard="Url"
+                                HeightRequest="50" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- CATEGORIA -->
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            Text="Categoria"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#111827" />
+
+                        <Label
+                            Text="Informe o ID da categoria cadastrada."
+                            FontSize="12"
+                            TextColor="#777777" />
+
+                        <Border
+                            Padding="12,0"
+                            BackgroundColor="#F8F8F8"
+                            Stroke="#D5D5D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Entry
+                                x:Name="CategoriaIdEntry"
+                                Placeholder="Ex.: 1"
+                                PlaceholderColor="#999999"
+                                TextColor="#111827"
+                                BackgroundColor="Transparent"
+                                FontSize="15"
+                                Keyboard="Numeric"
+                                HeightRequest="50" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+                    <!-- BOTÕES -->
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="10"
+                        Margin="0,8,0,0">
+
+                        <Button
+                            Grid.Column="0"
+                            Text="Salvar produto"
+                            HeightRequest="52"
+                            CornerRadius="10"
+                            BackgroundColor="#111827"
+                            TextColor="White"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            Clicked="OnSalvarClicked" />
+
+                        <Button
+                            Grid.Column="1"
+                            Text="Limpar"
+                            HeightRequest="52"
+                            CornerRadius="10"
+                            BackgroundColor="#D4AF37"
+                            TextColor="#111827"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            Clicked="OnLimparClicked" />
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ===================================== -->
+            <!-- PRODUTOS CADASTRADOS                   -->
+            <!-- ===================================== -->
+
+            <VerticalStackLayout
+                Spacing="4"
+                Margin="0,5,0,0">
+
+                <Label
+                    Text="Produtos cadastrados"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Label
+                    Text="Produtos disponíveis atualmente na loja."
+                    FontSize="13"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ===================================== -->
+            <!-- LISTA DE PRODUTOS                      -->
+            <!-- ===================================== -->
+
+            <CollectionView
+                x:Name="ProdutosCollectionView"
+                SelectionMode="None">
+
+                <CollectionView.EmptyView>
+
+                    <Border
+                        Padding="25"
+                        BackgroundColor="White"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <VerticalStackLayout
+                            Spacing="8"
+                            HorizontalOptions="Center">
+
+                            <Label
+                                Text="Nenhum produto encontrado."
+                                FontSize="17"
+                                FontAttributes="Bold"
+                                TextColor="#777777"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="Cadastre seu primeiro produto acima."
+                                FontSize="13"
+                                TextColor="#999999"
+                                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </CollectionView.EmptyView>
+
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            Margin="0,0,0,14"
+                            Padding="16"
+                            BackgroundColor="White"
+                            Stroke="#DDDDDD"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 15">
+
+                            <VerticalStackLayout
+                                Spacing="8">
+
+                                <Label
+                                    Text="{Binding Nome}"
+                                    FontSize="19"
+                                    FontAttributes="Bold"
+                                    TextColor="#111827" />
+
+                                <Label
+                                    Text="{Binding Descricao}"
+                                    FontSize="14"
+                                    TextColor="#777777"
+                                    MaxLines="3"
+                                    LineBreakMode="TailTruncation" />
+
+                                <Label
+                                    Text="{Binding Preco, StringFormat='R$ {0:F2}'}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="#D4AF37" />
+
+                                <Label
+                                    Text="{Binding Quantidade, StringFormat='Estoque: {0}'}"
+                                    FontSize="14"
+                                    TextColor="#555555" />
+
+                                <Label
+                                    Text="{Binding CategoriaId, StringFormat='Categoria ID: {0}'}"
+                                    FontSize="13"
+                                    TextColor="#777777" />
+
+                                <Button
+                                    Text="Excluir produto"
+                                    HeightRequest="48"
+                                    CornerRadius="10"
+                                    Margin="0,5,0,0"
+                                    BackgroundColor="#B71C1C"
+                                    TextColor="White"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnExcluirClicked" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

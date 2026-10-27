@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Valery"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="30,60"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <!-- LOGO / NOME -->
+            <Label
+                Text="VALERY"
+                FontSize="42"
+                FontAttributes="Bold"
+                TextColor="#D4AF37"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="Sua experiência de compra, agora no mobile."
+                FontSize="16"
+                TextColor="#777777"
+                HorizontalTextAlignment="Center" />
+
+            <!-- BOTÕES -->
+            <VerticalStackLayout
+                Margin="0,30,0,0"
+                Spacing="12">
+
+                <Button
+                    Text="Entrar"
+                    HeightRequest="55"
+                    CornerRadius="10"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    BackgroundColor="#111827"
+                    TextColor="White"
+                    Clicked="OnEntrarClicked" />
+
+                <Button
+                    Text="Criar minha conta"
+                    HeightRequest="55"
+                    CornerRadius="10"
+                    FontSize="16"
+                    BackgroundColor="Transparent"
+                    TextColor="#111827"
+                    BorderColor="#111827"
+                    BorderWidth="1"
+                    Clicked="OnCadastroClicked" />
+
+                <Button
+                    Text="Ver produtos"
+                    HeightRequest="55"
+                    CornerRadius="10"
+                    FontSize="16"
+                    BackgroundColor="Transparent"
+                    TextColor="#111827"
+                    BorderColor="#DDDDDD"
+                    BorderWidth="1"
+                    Clicked="OnProdutosClicked" />
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Auth.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Login"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <Label
+                Text="VALERY"
+                FontSize="40"
+                FontAttributes="Bold"
+                TextColor="#D4AF37"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="Acesse sua conta"
+                FontSize="22"
+                FontAttributes="Bold"
+                TextColor="#111827"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,10" />
+
+            <Border
+                Padding="20"
+                BackgroundColor="White"
+                Stroke="#DDDDDD"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 15">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Entry
+                        x:Name="EmailEntry"
+                        Placeholder="E-mail"
+                        Keyboard="Email"
+                        TextColor="#111827"
+                        PlaceholderColor="#888888"
+                        HeightRequest="50" />
+
+                    <Entry
+                        x:Name="SenhaEntry"
+                        Placeholder="Senha"
+                        IsPassword="True"
+                        TextColor="#111827"
+                        PlaceholderColor="#888888"
+                        HeightRequest="50" />
+
+                    <Button
+                        x:Name="EntrarButton"
+                        Text="Entrar"
+                        HeightRequest="52"
+                        CornerRadius="10"
+                        BackgroundColor="#111827"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnEntrarClicked" />
+
+                    <Button
+                        Text="Criar minha conta"
+                        HeightRequest="52"
+                        CornerRadius="10"
+                        BackgroundColor="#D4AF37"
+                        TextColor="#111827"
+                        FontAttributes="Bold"
+                        Clicked="OnCadastroClicked" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

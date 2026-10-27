@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Admin.AdminPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="VALERY ADMIN"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- ====================================== -->
+            <!-- CABEÇALHO ADMINISTRATIVO               -->
+            <!-- ====================================== -->
+
+            <Border
+                Padding="22"
+                BackgroundColor="#111827"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 18">
+
+                <Grid
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="15">
+
+                    <VerticalStackLayout
+                        Grid.Column="0"
+                        Spacing="5">
+
+                        <Label
+                            Text="VALERY"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            TextColor="#D4AF37" />
+
+                        <Label
+                            Text="Painel Administrativo"
+                            FontSize="21"
+                            FontAttributes="Bold"
+                            TextColor="White" />
+
+                        <Label
+                            Text="Controle e gerenciamento da sua loja"
+                            FontSize="13"
+                            TextColor="#B8B8B8" />
+
+                    </VerticalStackLayout>
+
+                    <!-- ÍCONE ADMIN -->
+
+                    <Border
+                        Grid.Column="1"
+                        WidthRequest="58"
+                        HeightRequest="58"
+                        BackgroundColor="#D4AF37"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 29"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="A"
+                            FontSize="26"
+                            FontAttributes="Bold"
+                            TextColor="#111827"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ====================================== -->
+            <!-- RESUMO                                  -->
+            <!-- ====================================== -->
+
+            <VerticalStackLayout
+                Spacing="3"
+                Margin="0,5,0,0">
+
+                <Label
+                    Text="Visão geral"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Label
+                    Text="Resumo atual da sua loja"
+                    FontSize="14"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ====================================== -->
+            <!-- CARDS DO DASHBOARD                      -->
+            <!-- ====================================== -->
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto,Auto"
+                ColumnSpacing="12"
+                RowSpacing="12">
+
+                <!-- PRODUTOS -->
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E1E1E1"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="PRODUTOS"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            TextColor="#777777" />
+
+                        <Label
+                            x:Name="ProdutosTotalLabel"
+                            Text="0"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            TextColor="#D4AF37" />
+
+                        <Label
+                            Text="Cadastrados"
+                            FontSize="12"
+                            TextColor="#999999" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- PEDIDOS -->
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E1E1E1"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="PEDIDOS"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            TextColor="#777777" />
+
+                        <Label
+                            x:Name="PedidosTotalLabel"
+                            Text="0"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            TextColor="#D4AF37" />
+
+                        <Label
+                            Text="Realizados"
+                            FontSize="12"
+                            TextColor="#999999" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- USUÁRIOS -->
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E1E1E1"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="USUÁRIOS"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            TextColor="#777777" />
+
+                        <Label
+                            x:Name="UsuariosTotalLabel"
+                            Text="0"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            TextColor="#D4AF37" />
+
+                        <Label
+                            Text="Cadastrados"
+                            FontSize="12"
+                            TextColor="#999999" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- STATUS -->
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E1E1E1"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="STATUS"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            TextColor="#777777" />
+
+                        <HorizontalStackLayout
+                            Spacing="8">
+
+                            <Border
+                                WidthRequest="12"
+                                HeightRequest="12"
+                                BackgroundColor="#2E7D32"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 6"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Text="Online"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#2E7D32" />
+
+                        </HorizontalStackLayout>
+
+                        <Label
+                            Text="Sistema conectado"
+                            FontSize="12"
+                            TextColor="#999999" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+
+            <!-- ====================================== -->
+            <!-- GERENCIAMENTO                           -->
+            <!-- ====================================== -->
+
+            <VerticalStackLayout
+                Spacing="3"
+                Margin="0,8,0,0">
+
+                <Label
+                    Text="Gerenciamento"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Label
+                    Text="Acesse as ferramentas administrativas"
+                    FontSize="14"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+
+            <!-- PRODUTOS -->
+
+            <Border
+                Padding="0"
+                BackgroundColor="White"
+                Stroke="#E1E1E1"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 14">
+
+                <Button
+                    Text="📦  Gerenciar Produtos"
+                    HeightRequest="58"
+                    CornerRadius="14"
+                    BackgroundColor="White"
+                    TextColor="#111827"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Padding="18,0"
+                    Clicked="OnProdutosClicked" />
+
+            </Border>
+
+
+            <!-- PEDIDOS -->
+
+            <Border
+                Padding="0"
+                BackgroundColor="White"
+                Stroke="#E1E1E1"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 14">
+
+                <Button
+                    Text="🛒  Gerenciar Pedidos"
+                    HeightRequest="58"
+                    CornerRadius="14"
+                    BackgroundColor="White"
+                    TextColor="#111827"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Padding="18,0"
+                    Clicked="OnPedidosClicked" />
+
+            </Border>
+
+
+            <!-- USUÁRIOS -->
+
+            <Border
+                Padding="0"
+                BackgroundColor="White"
+                Stroke="#E1E1E1"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 14">
+
+                <Button
+                    Text="👥  Gerenciar Usuários"
+                    HeightRequest="58"
+                    CornerRadius="14"
+                    BackgroundColor="White"
+                    TextColor="#111827"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Padding="18,0"
+                    Clicked="OnUsuariosClicked" />
+
+            </Border>
+
+
+            <!-- ====================================== -->
+            <!-- SAIR                                    -->
+            <!-- ====================================== -->
+
+            <Button
+                Text="Sair da área administrativa"
+                HeightRequest="55"
+                CornerRadius="12"
+                Margin="0,8,0,10"
+                BackgroundColor="#111827"
+                TextColor="#D4AF37"
+                FontSize="15"
+                FontAttributes="Bold"
+                Clicked="OnSairClicked" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

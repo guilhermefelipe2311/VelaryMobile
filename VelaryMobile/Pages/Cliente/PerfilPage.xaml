@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Cliente.PerfilPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Meu Perfil"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20,30"
+            Spacing="20">
+
+            <Label
+                Text="VALERY"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#D4AF37"
+                HorizontalTextAlignment="Center" />
+
+            <Border
+                Padding="25"
+                BackgroundColor="White"
+                Stroke="#DDDDDD"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20">
+
+                <VerticalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="Center">
+
+                    <Border
+                        WidthRequest="110"
+                        HeightRequest="110"
+                        BackgroundColor="#111827"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 55">
+
+                        <Label
+                            Text="👤"
+                            FontSize="50"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Border>
+
+                    <Label
+                        Text="Meu Perfil"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#111827"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        x:Name="NomeLabel"
+                        Text="Usuário"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#111827"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        x:Name="EmailLabel"
+                        Text="email@email.com"
+                        FontSize="14"
+                        TextColor="#777777"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Label
+                Text="Minha conta"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#111827"
+                Margin="0,5,0,0" />
+
+            <Button
+                Text="📦  Meus Pedidos"
+                HeightRequest="55"
+                CornerRadius="10"
+                BackgroundColor="#111827"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnPedidosClicked" />
+
+            <Button
+                Text="🛍️  Continuar Comprando"
+                HeightRequest="55"
+                CornerRadius="10"
+                BackgroundColor="#D4AF37"
+                TextColor="#111827"
+                FontAttributes="Bold"
+                Clicked="OnProdutosClicked" />
+
+            <Button
+                Text="Sair da Conta"
+                HeightRequest="55"
+                CornerRadius="10"
+                BackgroundColor="#E63946"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnSairClicked" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

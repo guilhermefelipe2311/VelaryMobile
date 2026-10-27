@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="VelaryMobile.Pages.Cliente.CarrinhoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Meu Carrinho"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- CABEÇALHO -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="20,25,20,15"
+            Spacing="4">
+
+            <Label
+                Text="VALERY"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#D4AF37" />
+
+            <Grid ColumnDefinitions="*,Auto">
+
+                <Label
+                    Grid.Column="0"
+                    Text="Meu Carrinho"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#111827" />
+
+                <Border
+                    Grid.Column="1"
+                    Padding="10,5"
+                    BackgroundColor="#111827"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 15"
+                    VerticalOptions="Center">
+
+                    <Label
+                        x:Name="QuantidadeItensLabel"
+                        Text="0 itens"
+                        FontSize="13"
+                        FontAttributes="Bold"
+                        TextColor="White" />
+
+                </Border>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+
+        <!-- LISTA DE PRODUTOS -->
+        <CollectionView
+            x:Name="CarrinhoCollectionView"
+            Grid.Row="1"
+            Margin="20,0"
+            SelectionMode="None">
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    Padding="20,60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Spacing="12">
+
+                    <Label
+                        Text="Seu carrinho está vazio."
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#777777"
+                        HorizontalTextAlignment="Center" />
+
+                    <Button
+                        Text="Voltar aos produtos"
+                        HeightRequest="48"
+                        CornerRadius="10"
+                        BackgroundColor="#111827"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnProdutosClicked" />
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Margin="0,0,0,15"
+                        Padding="15"
+                        BackgroundColor="White"
+                        Stroke="#DDDDDD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12">
+
+                        <VerticalStackLayout Spacing="12">
+
+                            <!-- PRODUTO -->
+                            <Grid
+                                ColumnDefinitions="90,*"
+                                ColumnSpacing="15">
+
+                                <!-- IMAGEM -->
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="90"
+                                    HeightRequest="90"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#F0F0F0"
+                                    StrokeShape="RoundRectangle 10">
+
+                                    <Image
+                                        Source="{Binding Produto.ImagemUrl}"
+                                        Aspect="AspectFill" />
+
+                                </Border>
+
+
+                                <!-- INFORMAÇÕES -->
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Spacing="5">
+
+                                    <Label
+                                        Text="{Binding Produto.Nome}"
+                                        FontSize="17"
+                                        FontAttributes="Bold"
+                                        TextColor="#111827" />
+
+                                    <Label
+                                        Text="{Binding Produto.Descricao}"
+                                        FontSize="12"
+                                        TextColor="#777777"
+                                        MaxLines="2"
+                                        LineBreakMode="TailTruncation" />
+
+                                    <Label
+                                        Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}"
+                                        FontSize="13"
+                                        FontAttributes="Bold"
+                                        TextColor="#555555" />
+
+                                    <Label
+                                        Text="{Binding PrecoUnitario, StringFormat='Preço unitário: R$ {0:F2}'}"
+                                        FontSize="13"
+                                        TextColor="#777777" />
+
+                                    <Label
+                                        Text="{Binding Quantidade, StringFormat='Subtotal: {0} unidade(s)'}"
+                                        FontSize="12"
+                                        TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+
+                            <!-- BOTÃO REMOVER -->
+                            <Button
+                                Text="🗑 Remover item"
+                                HeightRequest="45"
+                                CornerRadius="8"
+                                BackgroundColor="#E63946"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                CommandParameter="{Binding .}"
+                                Clicked="OnRemoverClicked" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+        <!-- RESUMO / TOTAL -->
+        <Border
+            Grid.Row="2"
+            Margin="20,10,20,20"
+            Padding="20"
+            BackgroundColor="White"
+            Stroke="#DDDDDD"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 12">
+
+            <VerticalStackLayout Spacing="15">
+
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <Label
+                        Grid.Column="0"
+                        Text="Total"
+                        FontSize="16"
+                        TextColor="#777777" />
+
+                    <Label
+                        Grid.Column="1"
+                        x:Name="ResumoItensLabel"
+                        Text="0 itens"
+                        FontSize="14"
+                        TextColor="#777777" />
+
+                </Grid>
+
+
+                <Label
+                    x:Name="TotalLabel"
+                    Text="R$ 0,00"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#D4AF37" />
+
+
+                <Button
+                    x:Name="FinalizarButton"
+                    Text="Finalizar Pedido"
+                    HeightRequest="50"
+                    CornerRadius="8"
+                    BackgroundColor="#111827"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnFinalizarClicked" />
+
+            </VerticalStackLayout>
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>
